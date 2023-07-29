@@ -52,6 +52,7 @@ public class TravelServiceImpl implements TravelService {
         travel.setDepPort(airPortService.getAirportByCode(dto.getDepPort().getCode()));
         travel.setArrPort(airPortService.getAirportByCode(dto.getArrPort().getCode()));
         travel.setPassengerPrices(passengerPriceService.createPassengers(dto.getPassengerPricesDto()));
+        travel.setPriceDetail(priceDetailService.create(dto.getPriceDetailDto()));
         return travel;
     }
     public TravelDto toDto(Travel travel){
