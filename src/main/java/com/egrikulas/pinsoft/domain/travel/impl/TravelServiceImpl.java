@@ -34,6 +34,22 @@ public class TravelServiceImpl implements TravelService {
        return repository.findAll().stream().map(this::toDto).toList();
     }
 
+    public List<TravelDto> getTravelDeparture(){
+       return repository
+               .findAll()
+               .stream()
+               .filter(p -> p.getArrPort().getCode().equals("AYT"))
+               .map(this::toDto).toList();
+    }
+    public List<TravelDto> getTravelReturn(){
+        return repository
+                .findAll()
+                .stream()
+                .filter(p -> p.getArrPort().getCode().equals("DUS"))
+                .map(this::toDto).toList();
+    }
+
+
     public Travel getTravelEntityById(String id){
         return repository.findById(id).orElseThrow(EntityNotFoundException::new);
     }

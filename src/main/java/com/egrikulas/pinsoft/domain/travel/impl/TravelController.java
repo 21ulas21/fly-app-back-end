@@ -24,5 +24,13 @@ public class TravelController {
     public List<TravelDto> getAll(){
     return service.getAll();
     }
+    @GetMapping("/departure")
+    public List<TravelDto> getTravelDeparture(){
+        return service.getTravelDeparture();
+    }
+    @GetMapping("/return")
+    public List<TravelDto> getTravelReturn(){
+        return service.getTravelReturn();
+    }
 
 }

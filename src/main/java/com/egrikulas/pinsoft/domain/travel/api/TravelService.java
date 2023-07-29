@@ -6,4 +6,7 @@ public interface TravelService {
 
     List<TravelDto> create(List<TravelDto> request);
     List<TravelDto> getAll();
+    List<TravelDto> getTravelReturn();
+
+    List<TravelDto> getTravelDeparture();
 }
