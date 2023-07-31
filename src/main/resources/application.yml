@@ -4,9 +4,9 @@ spring:
   main:
     allow-circular-references: true
   datasource:
-    url: jdbc:postgresql://localhost:5432/pinsoft-fly
-    username: postgres
-    password: 123456
+    url: jdbc:postgresql://dpg-cj41vktgkuvrquvmtg1g-a.oregon-postgres.render.com:5432/pinsoftfly
+    username: ulas
+    password: G2Hon5vYZHkSPayBNjees1bMWOtyCRYD
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -17,3 +17,5 @@ spring:
         format_sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+server:
+  port: 8081
