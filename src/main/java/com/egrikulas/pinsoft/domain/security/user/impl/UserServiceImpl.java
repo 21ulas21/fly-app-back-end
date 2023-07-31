@@ -5,6 +5,8 @@ import com.egrikulas.pinsoft.domain.security.user.api.UserDto;
 import com.egrikulas.pinsoft.domain.security.user.api.UserService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -41,6 +43,12 @@ public class UserServiceImpl implements UserService {
                 .map(repository::save)
                 .map(this::toDto)
                 .orElseThrow(EntityNotFoundException::new);
+    }
+
+    @Override
+    public UserDto getUser() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        return getUserByEmail(username);
     }
 
     public User toEntity(User user, UserDto dto){

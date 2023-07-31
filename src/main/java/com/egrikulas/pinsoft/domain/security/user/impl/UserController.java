@@ -24,6 +24,12 @@ public class UserController {
         var result = service.updateUser(id,request.toDto());
         return ResponseEntity.ok(UserResponse.toResponse(result));
     }
+    @GetMapping()
+    public ResponseEntity<UserResponse> getUser(){
+        var result = service.getUser();
+        return ResponseEntity.ok(UserResponse.toResponse(result));
+    }
+
 
 
 
