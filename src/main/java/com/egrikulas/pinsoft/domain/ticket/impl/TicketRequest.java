@@ -20,9 +20,9 @@ public class TicketRequest {
 
     public TicketDto toDto(){
         return TicketDto.builder()
-                .insurance(insurance)
-                .luggage(luggage)
-                .userDto(UserDto.builder().id(userId).build())
+                .insurance(true)
+                .luggage(1.0)
+                .userDto(UserDto.builder().id("1").build())
                 .travelDto(TravelDto.builder().id(travelId).build())
                 .build();
     }
