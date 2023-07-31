@@ -19,7 +19,7 @@ public class TicketController {
         var ticket = service.createTicket(request.toDto());
         return ResponseEntity.ok(TicketResponse.fromDto(ticket));
     }
-    @GetMapping("/getAll")
+    @GetMapping("/get-all")
     public ResponseEntity<List<TicketResponse>> getAllTicketByUserId(){
         var tickets = service.getAllTicketByUser().stream().map(TicketResponse::fromDto).toList();
         return ResponseEntity.ok(tickets);
