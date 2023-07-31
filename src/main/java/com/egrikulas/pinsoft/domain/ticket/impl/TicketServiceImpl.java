@@ -1,5 +1,6 @@
 package com.egrikulas.pinsoft.domain.ticket.impl;
 
+import com.egrikulas.pinsoft.domain.security.user.api.UserDto;
 import com.egrikulas.pinsoft.domain.security.user.impl.UserServiceImpl;
 import com.egrikulas.pinsoft.domain.ticket.api.TicketDto;
 import com.egrikulas.pinsoft.domain.ticket.api.TicketService;
@@ -20,6 +21,9 @@ public class TicketServiceImpl implements TicketService {
     private final UserServiceImpl userService;
     @Override
     public TicketDto createTicket(TicketDto dto) {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        UserDto user = userService.getUserByEmail(username);
+        dto.setUserDto(user);
         var ticket = repository.save(toEntity(new Ticket(), dto));
         return toDto(ticket);
 
